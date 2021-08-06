@@ -106,9 +106,9 @@ async def play(_, message: Message):
     if message.chat.id in callsmusic.active_chats:
         thumb = THUMB_URL
         position = await queues.put(message.chat.id, file=file)
-        MENTMEH = message.from_user.mention()
+        MENTION = message.from_user.mention()
         await response.delete()
-        await message.reply_photo(thumb, caption=f"**Your Song Queued at position** `{position}`! \n**Requested by: {MENTMEH}**", reply_markup=PLAYMSG_BUTTONS)
+        await message.reply_photo(thumb, caption=f"**Your Song Queued at position** `{position}`! \n**Requested by: {MENTION}**", reply_markup=PLAYMSG_BUTTONS)
     else:
         thumb = THUMB_URL
         await callsmusic.set_stream(message.chat.id, file)
@@ -166,9 +166,9 @@ async def nplay(_, message: Message):
     if message.chat.id in callsmusic.active_chats:
         thumb = THUMB_URL
         position = await queues.put(message.chat.id, file=file)
-        MENTMEH = message.from_user.mention()
+        MENTION = message.from_user.mention()
         await lel.delete()
-        await message.reply_photo(thumb, caption=f"**Your Song Queued at position** `{position}`! \n**Requested by: {MENTMEH}**", reply_markup=PLAYMSG_BUTTONS)
+        await message.reply_photo(thumb, caption=f"**Your Song Queued at position** `{position}`! \n**Requested by: {MENTION}**", reply_markup=PLAYMSG_BUTTONS)
     else:
         thumb = THUMB_URL
         await callsmusic.set_stream(message.chat.id, file)
